@@ -45,7 +45,7 @@ with open(input_file, encoding ='utf-8') as csvfile:
     for row in csvreader:
         Months.append(row[0])
         Profit_Loss.append(float(row[1]))
-        
+
 # Calculating the changes in P&L
 PL_Changes = [Profit_Loss[x+1]-Profit_Loss[x] for x in range(len(Profit_Loss)-1)]
 New_list = zip(Months[1:],PL_Changes)
@@ -59,24 +59,20 @@ for row in New_list:
         Decrease_Month = row[0]
 # Summarizing all the values
 total_month = str(len(Months))
-total_profit_loss = sum(Profit_Loss)
+total_prof_loss = sum(Profit_Loss)
 average_changes = sum(PL_Changes) / len(PL_Changes)
 Increase = max(PL_Changes)
 Decrease = min(PL_Changes)
 # Printing to the terminal 
-print("Financial Analyis")
-print("-------------------------------")
 print("Total Months: " + total_month)
-print("Total: " + "$" + str(total_profit_loss))
+print("Net Profit/Losses: " + "$" + str(total_prof_loss))
 print("Average  Change: " + str(average_changes))
-print("Greatest Increase in Profits: " + str(Increase_Month))
-print("Greatest Decrease in Profits: " + str(Decrease_Month))
+print("Greatest Increase in Profits: " + str(Increase_Month) + " $" + str(Increase))
+print("Greatest Decrease in Profits: " + str(Decrease_Month) + " $" + str(Decrease))
 # Printing to text file
 with open(output_file,'w') as textfile:
-    print("Financial Analyis", file=textfile)
-    print("-----------------------------------")
     print("Total Months: " + total_month, file=textfile)
-    print("Total: " + "$" + str(total_profit_loss), file=textfile)
+    print("Net Profit/Losses: " + str(total_prof_loss), file=textfile)
     print("Average  Change: " + str(average_changes), file=textfile)
     print("Greatest Increase in Profits: " + str(Increase_Month) + " (" + str(Increase) + ")",file=textfile)
     print("Greatest Decrease in Profits: " + str(Decrease_Month) + " (" + str(Decrease) + ")",file=textfile)

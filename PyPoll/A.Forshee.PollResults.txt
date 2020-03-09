@@ -1,0 +1,10 @@
+Total Votes: 3521001
+Khan Votes: 2218231
+Correy Votes: 704200
+Li Votes: 492940
+O'Tooley Votes: 105630
+Khan Percentage: 0.6300001050837531
+Correy Percentage: 0.19999994319797126
+Li Percentage: 0.13999996023857988
+O'Tooley: 0.02999999147969569
+And the winner is: Khan

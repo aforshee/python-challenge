@@ -61,21 +61,50 @@ with open(input_file, encoding ='utf-8') as csvfile:
     
 
 
-Total_Votes = str(len(Votes))
-Total_Khan = str(len(Khan_votes))
-Total_Corey = str(len(Corey_votes))
-Total_Li = str(len(Li_votes))
-Total_OTooley = str(len(OTooley_votes))
+Total_Votes = (len(Votes))
+Total_Khan = (len(Khan_votes))
+Total_Corey = (len(Corey_votes))
+Total_Li = (len(Li_votes))
+Total_OTooley = (len(OTooley_votes))
+
+#Percentages for each candidate
 Percentage_Khan = str(len(Khan_votes)/len(Votes))
 Percentage_Correy = str(len(Corey_votes)/len(Votes))
 Percentage_Li = str(len(Li_votes)/len(Votes))
 Percentage_OTooley = str(len(OTooley_votes)/len(Votes))
-#print(Total_Votes)
-#print(Total_Khan)
-#print(Total_Corey)
-#print(Total_Li)
-#print(Total_OTooley)
-print(Percentage_Khan)
-print(Percentage_Correy)
-print(Percentage_Li)
-print(Percentage_OTooley)
+
+#List of Candidates
+cand_dict = {'Khan': Total_Khan, 
+                'Correy': Total_Corey, 
+                'Li': Total_Li, 
+                'OTooley': Total_OTooley}
+win_percent = 0
+winner = 'unknown'
+for key, value in cand_dict.items():
+    if value > win_percent:
+        win_percent = value
+        winner = key
+
+print("Total Votes: " + str(Total_Votes))
+print("Khan Votes: " + str(Total_Khan))
+print("Correy Votes: " + str(Total_Corey))
+print("Li Votes: " + str(Total_Li))
+print("O'Tooley Votes: " + str(Total_OTooley))
+print("Khan Percentage: " + Percentage_Khan)
+print("Correy Percentage: " + Percentage_Correy)
+print("Li Percentage: " + Percentage_Li)
+print("O'Tooley: " + Percentage_OTooley)
+print("And the winner is: " + winner)
+
+# Printing to text file
+with open(output_file,'w') as textfile:
+    print("Total Votes: " + str(Total_Votes), file=textfile)
+    print("Khan Votes: " + str(Total_Khan), file=textfile)
+    print("Correy Votes: " + str(Total_Corey), file=textfile)
+    print("Li Votes: " + str(Total_Li), file=textfile)
+    print("O'Tooley Votes: " + str(Total_OTooley), file=textfile)
+    print("Khan Percentage: " + Percentage_Khan, file=textfile)
+    print("Correy Percentage: " + Percentage_Correy, file=textfile)
+    print("Li Percentage: " + Percentage_Li, file=textfile)
+    print("O'Tooley: " + Percentage_OTooley, file=textfile)
+    print("And the winner is: " + winner, file=textfile)
